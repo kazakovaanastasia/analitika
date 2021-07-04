@@ -1,0 +1,6 @@
+SELECT TOP 10
+office_name, cookies
+FROM buildings
+JOIN consumption ON buildings.coffee_point_id=consumption.coffee_point_id
+WHERE cookies<1000
+ORDER BY cookies DESC

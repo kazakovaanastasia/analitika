@@ -1,0 +1,22 @@
+1)
+Вариант 1
+
+SELECT COUNT(promocode_id)*100/COUNT(1) FROM orders
+
+Вариант 2
+
+SELECT(100* (SELECT COUNT(order_id)
+FROM orders
+WHERE promocode_id IS NOT NULL))
+/ (SELECT COUNT(order_id)
+FROM orders)
+
+
+2)
+
+SELECT TOP 1
+name, count(name)
+FROM orders
+JOIN promocodes ON orders.promocode_id=promocodes.promocode_id
+GROUP BY name
+ORDER BY count(name) DESC
